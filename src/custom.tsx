@@ -1,5 +1,5 @@
 // Edit to the top message.
-export const customMessage: string = "text here"
+export const customMessage: string = "Donate ETH"
 
 // Edit here to change the main Donation button text.
 export const buttonText: string = "Donate"
