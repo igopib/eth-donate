@@ -39,9 +39,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider
         theme={darkTheme({
-          accentColor: "#7b3fe4",
+          accentColor: "black",
           accentColorForeground: "white",
-          borderRadius: "small",
+          borderRadius: "none",
           fontStack: "system",
           overlayBlur: "small",
         })}
