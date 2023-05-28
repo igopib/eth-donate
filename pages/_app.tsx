@@ -12,17 +12,17 @@ import { publicProvider } from "wagmi/providers/public"
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
     [
-        mainnet,
-        polygon,
-        optimism,
-        arbitrum,
-        ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true" ? [goerli] : []),
+        sepolia,
+        polygonMumbai,
+        ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true"
+            ? [sepolia]
+            : []),
     ],
     [publicProvider()]
 )
 
 const { connectors } = getDefaultWallets({
-    appName: "RainbowKit App",
+    appName: "Eth Donate",
     projectId: "YOUR_PROJECT_ID",
     chains,
 })
