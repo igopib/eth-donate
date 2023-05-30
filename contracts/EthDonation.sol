@@ -57,10 +57,9 @@ contract EthDonation {
         string memory _message,
         uint256 _ethAmount
     ) public payable {
-        // Require reverts the transaction if the donation amount is 0.
-        require(_ethAmount > 0, "Amount must be greater than 0");
-
-        totalDonations += 1;
+        uint256 amount = 0.05 ether;
+        // The amount of eth sent
+        require(_ethAmount <= amount, "Not enough ETH");
 
         // pushing the info into the array.
         donation.push(Donation(msg.sender, _name, _message, block.timestamp));
@@ -68,7 +67,7 @@ contract EthDonation {
         // sending eth
         (bool success, ) = owner.call{value: _ethAmount}("");
         require(success, "Donation Failed");
-
+        totalDonations += 1;
         emit newDonation(msg.sender, block.timestamp, _message, _name);
     }
 }
