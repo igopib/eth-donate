@@ -13,10 +13,10 @@ const Main = () => {
     const [ethValue, setEthValue] = useState(ethAmount)
 
     const { config, error } = usePrepareContractWrite({
-        address: "0xE4aA5Ec56117830114370a5472a3161642C922C3",
+        address: "0x72d0713f8d1320aAE74fE8841Bc7E41fA56c3572",
         abi: contractInterface,
         functionName: "donateEth",
-        args: ["Gurpreet", "My message", parseEther("1")],
+        args: ["Gurpreet", "My message", parseEther("0.05")],
     })
 
     const {

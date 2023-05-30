@@ -67,6 +67,7 @@ contract EthDonation {
         // sending eth
         (bool success, ) = owner.call{value: _ethAmount}("");
         require(success, "Donation Failed");
+
         totalDonations += 1;
         emit newDonation(msg.sender, block.timestamp, _message, _name);
     }
