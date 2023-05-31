@@ -1,5 +1,6 @@
 [
     { "inputs": [], "stateMutability": "payable", "type": "constructor" },
+    { "inputs": [], "name": "EthDonation__DonationFailed", "type": "error" },
     {
         "anonymous": false,
         "inputs": [
@@ -77,15 +78,6 @@
                 "name": "",
                 "type": "tuple[]"
             }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "getOwnerAddress",
-        "outputs": [
-            { "internalType": "address", "name": "", "type": "address" }
         ],
         "stateMutability": "view",
         "type": "function"
