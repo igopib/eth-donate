@@ -2,6 +2,8 @@
 
 pragma solidity ^0.8.17;
 
+error EthDonation__DonationFailed();
+
 contract EthDonation {
     // Tracking total number of donations.
     uint256 totalDonations;
@@ -46,29 +48,32 @@ contract EthDonation {
         return totalDonations;
     }
 
-    // Returns owner address
-    function getOwnerAddress() public view returns (address) {
-        return owner;
-    }
-
     // Function takes the user name, message and ethAmount.
     function donateEth(
         string memory _name,
         string memory _message,
         uint256 _ethAmount
     ) public payable {
-        uint256 amount = 0.05 ether;
-        // The amount of eth sent
-        require(_ethAmount <= amount, "Not enough ETH");
+        // Making sure eth amount is more than 0
+        require(_ethAmount > 0 ether, "Need to send more than 0");
 
-        // pushing the info into the array.
-        donation.push(Donation(msg.sender, _name, _message, block.timestamp));
+        require(msg.value >= _ethAmount, "Transaction cannot be completed");
 
         // sending eth
         (bool success, ) = owner.call{value: _ethAmount}("");
-        require(success, "Donation Failed");
 
-        totalDonations += 1;
-        emit newDonation(msg.sender, block.timestamp, _message, _name);
+        // Checks whether if the transaction went through and then pushes and updates the state of contract.
+        if (success) {
+            donation.push(
+                Donation(msg.sender, _name, _message, block.timestamp)
+            );
+
+            totalDonations += 1;
+            emit newDonation(msg.sender, block.timestamp, _message, _name);
+        }
+        // If transfer fails, transaction is reverted and gives error.
+        else {
+            revert EthDonation__DonationFailed();
+        }
     }
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { customMessage, buttonText, ethAmount } from "../../src/custom"
+import { customMessage, buttonText } from "../../src/custom"
 import Style from "./Main.module.css"
 
 // Smart Contract Imports
@@ -10,10 +10,10 @@ import { contractAddress } from "../../src/custom"
 
 const Main = () => {
     // App states
-    const [ethValue, setEthValue] = useState(ethAmount)
+    const [ethValue, setEthValue] = useState("0.05")
 
     const { config, error } = usePrepareContractWrite({
-        address: "0x72d0713f8d1320aAE74fE8841Bc7E41fA56c3572",
+        address: "0xE4aA5Ec56117830114370a5472a3161642C922C3",
         abi: contractInterface,
         functionName: "donateEth",
         args: ["Gurpreet", "My message", parseEther("0.05")],
