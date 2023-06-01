@@ -7,3 +7,6 @@ export const buttonText: string = "Donate"
 // Contract address of smart contract. {{{{{ Paste address string after 0x----- }}}}}
 export const contractAddress: string =
     "8ccaf90ea4f9425d14cb982ace979c542881a147"
+
+// Currently Sepolia testnet chainId since contract is deployed there.
+export const wagmiChainId: number = 11155111

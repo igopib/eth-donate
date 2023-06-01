@@ -6,6 +6,8 @@ Next.js app, styled using tailwindcss and powered by Solidity smart contracts, b
 
 ```bash
 git clone https://github.com/igopib/eth-donate
+
+yarn
 ```
 
 ## Usage
@@ -24,6 +26,8 @@ export const buttonText: string = "Donate"
 
 export const contractAddress: string =
     "8ccaf90ea4f9425d14cb982ace979c542881a147"
+
+export const wagmiChainId: number = 11155111
 
 ```
 

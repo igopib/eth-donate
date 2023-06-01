@@ -3,36 +3,38 @@ import { customMessage, buttonText } from "../../src/custom"
 import Style from "./Main.module.css"
 
 // Smart Contract Imports for Wagmi.sh
-import { useAccount, usePrepareContractWrite, useContractWrite } from "wagmi"
-import { parseEther, parseGwei } from "viem"
+import { useAccount, useContractWrite } from "wagmi"
+import { parseEther } from "viem"
 import contractInterface from "../../src/contractABI.json"
-import { contractAddress } from "../../src/custom"
+import { contractAddress, wagmiChainId } from "../../src/custom"
 
 const Main: React.FC = () => {
+    /* 
+     States to keep track of the inputs and their updates.
+    */
     const [name, setName] = useState<string>("")
     const [message, setMessage] = useState<string>("")
-    const [inputValue, setInputValue] = useState<string>("0")
+    const [inputValue, setInputValue] = useState<string>("")
 
     /* Using the Wagmi.sh useContractWrite hook to set up a transaction. 
-       Edit chainId to the Id of the blockchain where the contract is deployed
+       Edit chainId to the Id of the blockchain where the contract is deployed.
     */
     const { data, isLoading, isSuccess, write } = useContractWrite({
         address: `0x${contractAddress}`,
         abi: contractInterface,
         functionName: "donateEth",
-        chainId: 11155111,
-        onSuccess(data) {
-            console.log("Success", data)
-        },
+        chainId: wagmiChainId,
     })
 
-    // Special thanks to chatgpt for this replace and match.
+    /* Special thanks to chatgpt for this replace and match.
+     */
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value
         let sanitizedValue = value.replace(/[^0-9.]+/g, "") // Remove non-numeric characters except decimal point
         const decimalCount = (sanitizedValue.match(/\./g) || []).length // Count the decimal points
 
-        // Limit to one decimal point
+        /* Limit to one decimal point
+         */
         if (decimalCount > 1) {
             const parts = sanitizedValue.split(".")
             sanitizedValue = parts[0] + "." + parts.slice(1).join("")
@@ -49,7 +51,8 @@ const Main: React.FC = () => {
         setMessage(event.target.value)
     }
 
-    // Function runs on click of the button and runs the wagmi write to process the transaction.
+    /* Function runs on click of the button and runs the wagmi write to process the transaction.
+     */
     const handleButtonClick = () => {
         const parsedValue = parseEther(`${parseFloat(inputValue)}`)
 

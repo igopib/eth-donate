@@ -7,10 +7,10 @@ const Navbar = () => {
         <div className="fixed w-full p-4">
             <div className="flex justify-between">
                 <div className="flex items-center gap-8 text-xl">
-                    <div className="transform duration-300">
+                    <div className="transform duration-300 hover:text-[#3A3B3F]">
                         <Link href="/">home</Link>
                     </div>
-                    <div className="transform duration-300">
+                    <div className="transform duration-300 hover:text-[#3A3B3F]">
                         <Link href="https://github.com/igopib/eth-donate">
                             github
                         </Link>
