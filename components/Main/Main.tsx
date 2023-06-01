@@ -6,18 +6,24 @@ import Style from "./Main.module.css"
 import { useAccount, usePrepareContractWrite, useContractWrite } from "wagmi"
 import { parseEther, parseGwei } from "viem"
 import contractInterface from "../../src/contractABI.json"
+import { contractAddress } from "../../src/custom"
 
 const Main: React.FC = () => {
     const [name, setName] = useState<string>("")
     const [message, setMessage] = useState<string>("")
     const [inputValue, setInputValue] = useState<string>("0")
 
-    // Using the Wagmi.sh useContractWrite hook to set up a transaction.
+    /* Using the Wagmi.sh useContractWrite hook to set up a transaction. 
+       Edit chainId to the Id of the blockchain where the contract is deployed
+    */
     const { data, isLoading, isSuccess, write } = useContractWrite({
-        address: "0x8ccaf90ea4f9425d14cb982ace979c542881a147",
+        address: `0x${contractAddress}`,
         abi: contractInterface,
         functionName: "donateEth",
         chainId: 11155111,
+        onSuccess(data) {
+            console.log("Success", data)
+        },
     })
 
     // Special thanks to chatgpt for this replace and match.
