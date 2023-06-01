@@ -4,12 +4,17 @@ import { ConnectButton } from "@rainbow-me/rainbowkit"
 
 const Navbar = () => {
     return (
-        <div className="fixed w-full">
-            <div className="flex justify-between p-4">
-                <div className="flex gap-8 text-xl">
-                    <p>home</p>
-                    <p>github</p>
-                    <p>code</p>
+        <div className="fixed w-full p-4">
+            <div className="flex justify-between">
+                <div className="flex items-center gap-8 text-xl">
+                    <div className="transform duration-300">
+                        <Link href="/">home</Link>
+                    </div>
+                    <div className="transform duration-300">
+                        <Link href="https://github.com/igopib/eth-donate">
+                            github
+                        </Link>
+                    </div>
                 </div>
                 <div>
                     <ConnectButton />

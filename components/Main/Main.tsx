@@ -52,47 +52,45 @@ const Main: React.FC = () => {
             args: [name, message, parsedValue],
             value: parsedValue,
         })
-
-        console.log(inputValue)
     }
 
     return (
         <div className="flex h-screen w-full flex-col items-center justify-center gap-2 text-center">
             <div>{customMessage}</div>
             <div className={Style.Input}>
-                <div className="max-w-[500px] flex-col items-center  gap-4 border border-black bg-white/5">
+                <div className="max-w-[550px] flex-col items-center border border-black">
                     <input
                         type="text"
                         inputMode="text"
-                        placeholder="Your Name"
+                        placeholder="Enter name"
                         maxLength={30}
-                        className=""
+                        className="border-b border-zinc-600"
                         value={name}
                         onChange={handleNameChange}
                     />
                     <input
                         type="text"
                         inputMode="text"
-                        placeholder="Your Message"
+                        placeholder="Enter message"
                         maxLength={60}
-                        className=""
+                        className="border-b border-zinc-600"
                         value={message}
                         onChange={handleMessageChange}
                     />
                     <input
                         type="text"
                         inputMode="decimal"
-                        className=""
+                        className="border-b border-zinc-600"
                         maxLength={10}
                         placeholder="0.0"
                         value={inputValue}
                         onChange={handleInputChange}
                     />
-                    <div className="flex justify-center">
+                    <div className="flex items-center justify-center text-center">
                         <button
                             disabled={!write}
                             onClick={handleButtonClick}
-                            className=" m-4 cursor-pointer items-center justify-center border-[1px] border-white/40 bg-black/90 text-xl text-white duration-200 hover:scale-105"
+                            className="h-full w-full cursor-pointer items-center justify-center border-[1px] border-white/40 bg-[#3A3B3F] py-5 text-xl uppercase text-white duration-200 hover:bg-[#1A1B1F]"
                         >
                             {buttonText}
                         </button>
