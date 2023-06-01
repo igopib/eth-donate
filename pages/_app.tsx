@@ -38,6 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     return (
         <WagmiConfig config={wagmiConfig}>
             <RainbowKitProvider
+                modalSize="compact"
                 theme={darkTheme({
                     accentColor: "black",
                     accentColorForeground: "white",
