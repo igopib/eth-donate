@@ -38,7 +38,7 @@ Here you only need to update you deployed smart contract. Deploying your contrac
 Easiest way to deploy the contract is with the inbuilt **hardhat script** or use [Remix]("https://remix.ethereum.org/").
 
 ```bash
-yarn hardhat run scripts/deploy.js
+yarn hardhat run scripts/deploy.js --network sepolia
 
-npm hardhat run scripts/deploy.js
+npm hardhat run scripts/deploy.js --network sepolia
 ```
