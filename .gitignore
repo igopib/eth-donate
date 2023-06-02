@@ -8,6 +8,7 @@ artifacts
 cache
 typechain-types
 Test.tsx
+.env
 
 # testing
 /coverage
