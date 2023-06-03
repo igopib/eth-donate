@@ -35,6 +35,8 @@ export const wagmiChainId: number = 11155111
 
 Here you only need to update you deployed smart contract. Deploying your contract will make you the contract **owner** which will make all the donations being sent to your wallet address.
 
+#### Deploying Smart Contract
+
 Easiest way to deploy the contract is with the inbuilt **hardhat script** or use [Remix]("https://remix.ethereum.org/").
 
 ```bash
@@ -42,3 +44,15 @@ yarn hardhat run scripts/deploy.js --network sepolia
 
 npm hardhat run scripts/deploy.js --network sepolia
 ```
+
+Running the command will return you with the contract address that you can use to verify it.
+
+#### Verifying Smart Contract
+
+To verify the deployed contract address runt he following command.
+
+```bash
+npx hardhat verify --network mainnet DEPLOYED_CONTRACT_ADDRESS
+```
+
+or use [Sepolia Etherscan]("https://sepolia.etherscan.io/").
