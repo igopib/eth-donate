@@ -52,7 +52,7 @@ Running the command will return you with the contract address that you can use t
 To verify the deployed contract address runt he following command.
 
 ```bash
-npx hardhat verify --network mainnet DEPLOYED_CONTRACT_ADDRESS
+npx hardhat verify --network sepolia DEPLOYED_CONTRACT_ADDRESS
 ```
 
 or use [Sepolia Etherscan]("https://sepolia.etherscan.io/").
